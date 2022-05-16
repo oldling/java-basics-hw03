@@ -55,9 +55,28 @@ public class Student {
   public String toString() {
     return String.format("Student: %s, Rating: %d", this.name, this.rating);
     // TODO return String with name and rating of this student
-    return "";
   }
-  public static void main(String[] args) {
 
+  // In the method main() create 3 objects of Student type and input information about them.
+  public static void main(String[] args) {
+    Student studentNum1 = new Student("Sergii");
+
+    studentNum1.setRating(80);
+
+    Student studentNum2 = new Student("Valera");
+
+    studentNum2.setRating(91);
+
+    Student studentNum3 = new Student("Masha");
+    studentNum3.setName("Maria");
+    studentNum3.setRating(100);
+
+    System.out.println(Student.getAvgRating()); //Display the average rating of all students.
+
+
+    studentNum2.changeRating(120); //Change the rating of any student.
+
+
+    System.out.println(Student.getAvgRating()); //Display the new average rating
   }
 }
