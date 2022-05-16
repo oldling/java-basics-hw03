@@ -1,16 +1,22 @@
 public class Student {
   int rating;
   private String name;
+  static double ratingSum;
+  static int count;
 
   // TODO implement Student class according to the instructions provided in the README.md file
 
   public Student(String name) {
-    //TODO initialize name
+    this.name = name;    //TODO initialize name
+    count ++;
   }
 
   public static double getAvgRating() {
-    // TODO return average rating of all students
-    return 0;
+    if(count == 0) {
+      return 0;
+    } else {
+      return ratingSum / count;        // TODO return average rating of all students
+    }
   }
 
   public String getName() {
@@ -18,7 +24,7 @@ public class Student {
   }
 
   public void setName(String name) {
-    // TODO set student's name
+    this.name = name;  // TODO set student's name
   }
 
   public int getRating() {
@@ -26,25 +32,32 @@ public class Student {
   }
 
   public void setRating(int rating) {
-    // TODO initialize rating;
+    this.rating = rating;  // TODO initialize rating;
+    ratingSum += rating;
   }
 
   public boolean betterStudent(Student student) {
-    // TODO return the result of comparing this.student's rating with the student's rating
-    return false;
+    return rating >= student.getRating();  // TODO return the result of comparing this.student's rating with the student's rating
   }
 
   public void changeRating(int rating) {
-    // TODO change this student's rating and average rating of all students
+   ratingSum -= this.getRating();
+   this.rating = rating;
+   ratingSum += this.getRating(); // TODO change this student's rating and average rating of all students
   }
 
   public static void removeStudent(Student student) {
-    // TODO remove student
+    ratingSum -= student.getRating();  // TODO remove student
+    count --;
   }
 
   @Override
   public String toString() {
+    return String.format("Student: %s, Rating: %d", this.name, this.rating);
     // TODO return String with name and rating of this student
     return "";
+  }
+  public static void main(String[] args) {
+
   }
 }
