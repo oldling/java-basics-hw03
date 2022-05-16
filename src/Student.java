@@ -60,11 +60,9 @@ public class Student {
   // In the method main() create 3 objects of Student type and input information about them.
   public static void main(String[] args) {
     Student studentNum1 = new Student("Sergii");
-
     studentNum1.setRating(80);
 
     Student studentNum2 = new Student("Valera");
-
     studentNum2.setRating(91);
 
     Student studentNum3 = new Student("Masha");
@@ -73,10 +71,9 @@ public class Student {
 
     System.out.println(Student.getAvgRating()); //Display the average rating of all students.
 
-
     studentNum2.changeRating(120); //Change the rating of any student.
 
-
     System.out.println(Student.getAvgRating()); //Display the new average rating
+
   }
 }
